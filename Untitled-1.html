@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقليد التصميمات الصناعية - السيراميك والطلاء</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #2B3E50;
+            --cashmere: #C49A8F;
+            --cream-bg: #F5F2EB;
+            --white: #FFFFFF;
+            --shadow-soft: 0 12px 30px rgba(43, 62, 80, 0.08);
+            --shadow-hover: 0 20px 40px rgba(43, 62, 80, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            color: var(--navy-deep);
+            line-height: 1.8;
+            font-size: 18px;
+            padding-bottom: 50px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 4px solid var(--cashmere);
+            padding: 1.2rem 3rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--navy-deep);
+        }
+
+        .supervisor-badge {
+            background-color: var(--cashmere);
+            color: var(--white);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem;
+        }
+
+        .hero-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-title span {
+            color: var(--cashmere);
+            font-weight: 800;
+            font-size: 1.15rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--navy-deep);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .hero-title div {
+            width: 80px;
+            height: 4px;
+            background-color: var(--cashmere);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Section Title */
+        .section-header {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            background-color: var(--cashmere);
+            border-radius: 50%;
+        }
+
+        /* Cards Comparison Grid */
+        .comparison-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(196, 154, 143, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-header {
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .card-header.auth {
+            background-color: var(--navy-deep);
+        }
+
+        .card-header.copy {
+            background-color: var(--cashmere);
+        }
+
+        .card-img-box {
+            width: 100%;
+            height: 450px;
+            background-color: #E2DDD5;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-box img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 2rem;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .pill-badge {
+            background-color: var(--cream-bg);
+            color: var(--navy-deep);
+            border: 1px solid var(--cashmere);
+            display: inline-block;
+            padding: 0.4rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-body p {
+            font-size: 1.15rem;
+            color: var(--navy-deep);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        /* Interactive Slider Section */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 3px solid var(--white);
+            margin-bottom: 4rem;
+            background-color: #E2DDD5;
+        }
+
+        .slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-before {
+            z-index: 1;
+        }
+
+        .slider-after {
+            width: 50%;
+            z-index: 2;
+            overflow: hidden;
+            border-left: 4px solid var(--cashmere);
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--cashmere);
+            z-index: 3;
+            cursor: ew-resize;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 46px;
+            height: 46px;
+            background-color: var(--navy-deep);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(0,0,0,0.25);
+            border: 2px solid var(--cashmere);
+        }
+
+        /* Quiz Widget */
+        .quiz-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-soft);
+            border-top: 5px solid var(--cashmere);
+            margin-bottom: 4rem;
+        }
+
+        .quiz-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-opt {
+            background-color: var(--cream-bg);
+            border: 2px solid rgba(196, 154, 143, 0.4);
+            padding: 1.2rem;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .quiz-opt:hover {
+            border-color: var(--navy-deep);
+            background-color: var(--white);
+        }
+
+        .quiz-result {
+            padding: 1.2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            display: none;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Gallery Grid Additional Shots */
+        .extra-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .extra-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(196, 154, 143, 0.3);
+        }
+
+        .extra-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .extra-card-title {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            color: var(--navy-deep);
+        }
+
+        /* Academic Footer */
+        footer {
+            background-color: var(--navy-deep);
+            color: var(--cream-bg);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            border-top: 4px solid var(--cashmere);
+        }
+
+        footer h2 {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+            font-weight: 800;
+        }
+
+        footer p {
+            color: var(--cashmere);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">كلية الفنون والتصميم | قسم التصميم الصناعي</div>
+        <div class="supervisor-badge">إشراف: د. إسراء</div>
+    </header>
+
+    <div class="container">
+
+        <!-- Title -->
+        <div class="hero-title">
+            <span>دراسة أكاديمية فنية</span>
+            <h1>تقليد التصميمات الصناعية والمنتجات المبتكرة:<br>السيراميك والطلاء</h1>
+            <div></div>
+        </div>
+
+        <!-- Section 1: Side-by-Side Comparison -->
+        <div class="section-header">المقارنة البصرية المباشرة بين العينات</div>
+        <div class="comparison-cards-grid">
+
+            <!-- Card 1: Authentic -->
+            <div class="card">
+                <div class="card-header auth">السيراميك الأصلي</div>
+                <div class="card-img-box">
+                    <img src="اصلي1.jpeg" alt="سيراميك أرضيات أصلي">
+                </div>
+                <div class="card-body">
+                    <span class="pill-badge">أصلي</span>
+                    <p>سيراميك أرضيات أصلي، فرز أول، يتميز بجودة عالية في الخامة ودقة التفاصيل وتناسق الألوان والمقاسات.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Copy -->
+            <div class="card">
+                <div class="card-header copy">السيراميك الكوبي</div>
+                <div class="card-img-box">
+                    <img src="كوبي1.jpeg" alt="سيراميك أرضيات كوبي">
+                </div>
+                <div class="card-body">
+                    <span class="pill-badge">كوبي</span>
+                    <p>سيراميك أرضيات كوبي، يقلّد شكل وتصميم السيراميك الأصلي، وقد يختلف عنه في جودة الخامة ودرجة التفاصيل والألوان.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section 2: Extra Shots Gallery -->
+        <div class="section-header">لقطات العينات وتحليل السطح البصري</div>
+        <div class="extra-gallery">
+            <div class="extra-card">
+                <img src="اصلي 2.jpeg" alt="لقطة تحليلية للسيراميك الأصلي">
+                <div class="extra-card-title">عينة الأصلي: تجانس التدرج ودقة الحواف</div>
+            </div>
+            <div class="extra-card">
+                <img src="كوبي2.jpeg" alt="لقطة تحليلية للسيراميك الكوبي">
+                <div class="extra-card-title">عينة الكوبي: تفاوت الانعكاس والطلاء</div>
+            </div>
+        </div>
+
+        <!-- Section 3: Interactive Before/After Slider -->
+        <div class="section-header">شريط التمييز التفاعلي السريع (اسحبي بالماوس أو اللمس)</div>
+        <div class="slider-wrapper" id="sliderWrapper">
+            <div class="slider-img slider-before">
+               <img src="اصلي3.jpeg" alt="أصلي">
+            </div>
+            <div class="slider-img slider-after" id="sliderAfter">
+                <img src="كوبي3.jpeg" alt="كوبي" style="width: 1200px; max-width: none;">
+            </div>
+            <div class="slider-handle" id="sliderHandle">
+                <div class="slider-btn">↔</div>
+            </div>
+        </div>
+
+        <!-- Section 4: Interactive Quiz -->
+        <div class="section-header">اختبار الفحص السريع لعينة السيراميك</div>
+        <div class="quiz-card">
+            <div class="quiz-title">كيف نُميّز السيراميك الأصلي (الفرز الأول) عن الكوبي؟</div>
+            <div class="quiz-options">
+                <div class="quiz-opt" onclick="checkQuiz(false)">من حواف البلاطة الخارجية فقط</div>
+                <div class="quiz-opt" onclick="checkQuiz(true)">بدقة تفاصيل العروق، تناسق الألوان، وجودة الملمس والطلاء</div>
+                <div class="quiz-opt" onclick="checkQuiz(false)">من وزن البلاطة فقط</div>
+            </div>
+            <div class="quiz-result" id="quizResult"></div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h2>بحث مادة تقليد التصميمات الصناعية والمنتجات المبتكرة</h2>
+        <p>إعداد فريق العمل | كلية الفنون والتصميم</p>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        // Slider Logic
+        const wrapper = document.getElementById('sliderWrapper');
+        const after = document.getElementById('sliderAfter');
+        const handle = document.getElementById('sliderHandle');
+        let isResizing = false;
+
+        handle.addEventListener('mousedown', () => isResizing = true);
+        window.addEventListener('mouseup', () => isResizing = false);
+        window.addEventListener('mousemove', (e) => {
+            if (!isResizing) return;
+            let rect = wrapper.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
+            let percent = (x / rect.width) * 100;
+            after.style.width = percent + '%';
+            handle.style.left = percent + '%';
+        });
+
+        // Touch support
+        handle.addEventListener('touchstart', () => isResizing = true);
+        window.addEventListener('touchend', () => isResizing = false);
+        window.addEventListener('touchmove', (e) => {
+            if (!isResizing) return;
+            let rect = wrapper.getBoundingClientRect();
+            let x = e.touches[0].clientX - rect.left;
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
+            let percent = (x / rect.width) * 100;
+            after.style.width = percent + '%';
+            handle.style.left = percent + '%';
+        });
+
+        // Quiz Logic
+        function checkQuiz(isCorrect) {
+            const res = document.getElementById('quizResult');
+            res.style.display = 'block';
+            if (isCorrect) {
+                res.style.backgroundColor = '#2B3E50';
+                res.style.color = '#FFFFFF';
+                res.innerText = 'إجابة صحيحة! يتميز السيراميك الأصلي بدقة تفاصيل العروق وتناسق درجات الألوان وجودة الطلاء.';
+            } else {
+                res.style.backgroundColor = '#C49A8F';
+                res.style.color = '#FFFFFF';
+                res.innerText = 'إجابة غير دقيقة! حاول مرة أخرى بالتركيز على دقة التفاصيل وتناسق الألوان.';
+            }
+        }
+    </script>
+</body>
+</html>
